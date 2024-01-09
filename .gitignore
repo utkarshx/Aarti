@@ -12,3 +12,5 @@ pkg/http_errors
 pkg/packages/npm
 helm/artifact-registry/Chart.yaml
 docs/registries
+cmd/lkar/lkar
+cmd/lkard/lkard
