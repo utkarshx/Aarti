@@ -20,7 +20,6 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"go.linka.cloud/env"
 	"go.linka.cloud/grpc-toolkit/logger"
@@ -83,14 +82,15 @@ var (
 	debug bool
 
 	cmd = &cobra.Command{
-		Use:          "lkard (repository)",
-		Short:        "An OCI based Artifact Registry",
+		Use:          "aartisrv (repository)",
+		Short:        "An Artifact Registry Server",
 		Args:         cobra.MaximumNArgs(1),
 		SilenceUsage: true,
 		Version:      artifact_registry.Version,
 		Run: func(cmd *cobra.Command, args []string) {
 			if aesKey == "" {
-				logrus.Fatalf("environment variable $%s must be set", EnvKey)
+				// logrus.Fatalf("environment variable $%s must be set", EnvKey)
+				aesKey = "arrowai"
 			}
 			var repo string
 			if len(args) > 0 {
